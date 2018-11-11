@@ -1,0 +1,1 @@
+THEANO_FLAGS=floatX=float32,device=cpu python emiel_generate_caps.py -p 1 -k 5 -s dev --dataset flickr30k /Users/Emiel/PhD/Repositories/satyrid/model/flickr30k/flickr30k-soft_attn-w512-h1000.npz 19-sept-2016-error-analysis

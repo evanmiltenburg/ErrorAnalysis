@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block all_content %}
+<div id="allcontent">
+<center>
+{% if loaded %}
+Success!
+{% else %}
+<form action="/load_congruency/" method="POST">
+<input type="text" name="filename" value="congruency_data_final.json" size="30">
+<input type="submit" value="load">
+</form>
+{% endif %}
+</center>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<html>
+
+<!--
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+VARIABLES:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+image:          location of the image.
+index:          index of the description.
+description:    the description.
+categories:     the categories to be changed.
+all_categories: all categories that were annotated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<center>
+    <img src="{{image}}" height=400px><br/>
+    Relevant categories: {{categories}}, all annotated: {{all_categories}}<br/>
+    {{description}}<br/>
+<form action="/" method="POST">
+    <input type="hidden" name="number" value="{{index}}">
+    <input type="text" name="description" value="{{description}}" style="width: 500px;">
+    <input type="submit" value="submit">
+</form>
+</center>
+</html>

@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+
+{% block buttons %}
+<center style="margin:10px;">
+
+<form action="{{task_url}}" method="POST">
+<p>
+    <b>Error categories that apply</b> (Item {{congruency_index}}/{{category_total}})
+    <input type="hidden" name="number" value="{{congruency_index}}"> </p>
+
+
+<table style="font-size:12;" cellspacing="0">
+<tr>
+    <th></th><th>People</th>
+    <th></th><th>Subject</th>
+    <th></th><th>Object</th>
+    <th></th><th>General</th>
+    <th></th><th>General</th>
+</tr>
+<tr>
+    <td><input type="checkbox" name="feature" value="age"></td><td> Age </td>
+    <td><input type="checkbox" name="feature" value="wrong-subject"></td><td> Wrong </td>
+    <td><input type="checkbox" name="feature" value="wrong-object"></td><td> Wrong </td>
+    <td><input type="checkbox" name="feature" value="stance"></td><td> Stance </td>
+    <td><input type="checkbox" name="feature" value="scene/event/location"></td><td> Scene/event/location </td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="feature" value="gender"></td><td> Gender </td>
+    <td><input type="checkbox" name="feature" value="similar-subject"></td><td> Similar </td>
+    <td><input type="checkbox" name="feature" value="similar-object"></td><td> Similar </td>
+    <td><input type="checkbox" name="feature" value="activity"></td><td> Activity </td>
+    <td><input type="checkbox" name="feature" value="other"></td><td> Other </td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="feature" value="type of clothing"></td><td> Type of clothing </td>
+    <td><input type="checkbox" name="feature" value="inexistent-subject"></td><td> Inexistent </td>
+    <td><input type="checkbox" name="feature" value="inexistent-object"></td><td> Inexistent </td>
+    <td><input type="checkbox" name="feature" value="position"></td><td> Position </td>
+    <td><input type="checkbox" name="feature" value="color"></td><td> Color </td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="feature" value="color of clothing"></td><td> Color of clothing </td>
+    <td><input type="checkbox" name="feature" value="extra subject"></td><td> Extra subject </td>
+    <td><input type="checkbox" name="feature" value="extra object"></td><td> Extra object </td>
+    <td><input type="checkbox" name="feature" value="number"></td><td> Number </td>
+    <td><input type="checkbox" name="feature" value="generally unrelated"></td><td> Generally unrelated </td>
+</tr>
+<tr>
+    <td></td><td>  </td>
+    <td></td><td>  </td>
+    <td></td><td>  </td>
+    
+</tr>
+<tr>
+    <td></td><td>  </td>
+    <td></td><td>  </td>
+    <td></td><td>  </td>
+    
+</tr>
+</table>
+
+<input type="submit" value="submit">
+</form>
+
+</center>
+{% endblock %}

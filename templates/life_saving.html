@@ -1,0 +1,27 @@
+<html>
+
+<center><h1>Life-saving form</h1></center>
+
+
+
+<center style="margin:10px;">
+    
+<form action="http://127.0.0.1:5000/categorize_incongruent/" method="POST">
+
+<!--I filled in the value 520, because I'm sure I annotated that many sentences.-->
+Use this if the browser freezes. Specify a number higher than the last one have annotated, and work your way down. <input type="text" name="number" value="520"> <br />
+
+<table style="font-size:12;" cellspacing="0">
+<tr><td><input type="checkbox" name="feature" value="age"></td><td> Age </td><td><input type="checkbox" name="feature" value="object similarity"></td><td> Object similarity </td><tr>
+<tr><td><input type="checkbox" name="feature" value="sex"></td><td> Sex </td><td><input type="checkbox" name="feature" value="scene/event/location"></td><td> Scene/event/location </td><tr>
+<tr><td><input type="checkbox" name="feature" value="number"></td><td> Number </td><td><input type="checkbox" name="feature" value="clothing-type"></td><td> Type of clothing </td><tr>
+<tr><td><input type="checkbox" name="feature" value="activity"></td><td> Activity </td><td><input type="checkbox" name="feature" value="clothing-color"></td><td> Color of clothing </td><tr>
+<tr><td><input type="checkbox" name="feature" value="placement/position"></td><td> Placement/position </td><td><input type="checkbox" name="feature" value="unrelated"></td><td> Generally unrelated </td><tr>
+<tr><td><input type="checkbox" name="feature" value="wrong subject"></td><td> Wrong subject </td><td><input type="checkbox" name="feature" value="wrong object"></td><td> Wrong object</td><tr>
+<tr><td><input type="checkbox" name="feature" value="stance"></td><td> Stance</td><td><input type="checkbox" name="feature" value="other"></td><td> Other </td><tr>
+</table>
+<input type="submit" value="submit">
+</form>
+
+</center>
+</html>

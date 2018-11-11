@@ -1,0 +1,175 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\setlist[description]{parsep=0px, leftmargin=0cm}
+\usepackage{booktabs}
+\usepackage{multicol}
+\begin{document}
+
+\title{Guidelines for image description error analysis}
+\author{Anonymous}
+\date{\today}
+\maketitle
+
+\section{Introduction}
+This document provides guidelines for the annotation of automatically generated image descriptions. Our goal is to assess the semantic competence of image description models. In other words: are the descriptions at least `technically' correct? This is a low bar, as we ignore fluency and usefulness, which are also desirable properties for an NLG system. We define two tasks: 
+\begin{enumerate}
+\item \textbf{A binary decision task}, where annotators judge whether or not a description is congruent with an image.
+\item \textbf{A categorization task}, where annotators select error categories that apply for incongruent descriptions.
+\end{enumerate}
+
+These tasks are strongly related: if a description is incongruent, it should fall into one of the error categories, and vice versa. Hence, annotators for either task need to be familiar with our taxonomy of errors.
+
+\section{Error categories}
+All our error categories are provided in Table~\ref{table:categories}. There are four main categories: People, Subject, Object, and General. I tried to strike a balance between specificity and amount of categories. No doubt some of these could be further subcategorized, but more categories means the annotation task might become overwhelming.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\toprule
+People & Subject & Object & General & General \\
+\midrule
+Age & Wrong & Wrong & Stance & Scene/event/location\\
+Gender & Similar & Similar & Activity & Other\\
+Type of clothing & Inexistent & Inexistent & Position & Color\\
+Color of clothing & Extra subject & Extra object & Number & Generally unrelated\\
+\bottomrule
+\end{tabular}
+\caption{Error categories for incongruent image descriptions. The organization of these categories corresponds to the organization of the categories in the annotation environment.}
+\label{table:categories}
+\end{table}
+
+\subsection{Short description}
+Here's a short description of each category, and each of the subcategories. The next section provides examples for each of these.
+\begin{description}[noitemsep, leftmargin=0cm, topsep=0px, itemindent=1.5\parindent]
+\item[People] Image description models often make mistakes that are specific to the description of people. Subcategories are \textsc{age} (e.g. \emph{woman} instead of \emph{girl}), \textsc{gender} (\emph{man} instead of \emph{woman}), \textsc{type of clothing} (\emph{shirt} instead of \emph{jacket}), and \textsc{color of clothing} (\emph{red shirt} instead of \emph{blue shirt}).
+\item[Subject] Mistakes relating to the subject of the description. We use the following subcategories: \textsc{wrong} when the wrong entity in the image is chosen as the subject, \textsc{similar} when the image description system mis-identifies the subject for something visually similar (e.g. \emph{guitar} instead of \emph{violin}), \textsc{inexistent} when nothing close to the mentioned entity is present in the image, and \textsc{extra subject/object} when an additional (nonexistent) entity is mentioned besides the correct entity.
+\item[Object] See \textbf{subject}.
+\item[General] Mistakes that are not specific to people. The subcategories are as follows: \textsc{stance} for posture-related mistakes, \textsc{activity} for wrongly identified activities, \textsc{position} for mistakes in spatial relations within the image, \textsc{number} for any counting errors (too few/many entities mentioned), \textsc{scene/event/location} for misidentifications of the scene, event, or location, \textsc{color} for non-clothing entities that are mistakenly said to have a particular color, \textsc{other} for any unforeseen mistakes, and \textsc{generally unrelated} for generally unrelated descriptions, that are beyond repair. This is usually the case when more than 2--3 error (sub)categories are applicable.
+\end{description}
+
+\subsection{Examples}
+
+\begin{multicols}{2}
+\centering
+\includegraphics[trim={0 75mm 0 0},clip,width=130px]{images/2251418114.jpg}\\
+A \textbf{man} is climbing a rock\\
+Category: Age\\[3ex]
+
+\includegraphics[width=130px]{images/3580375310.jpg}\\
+A \textbf{girl} playing soccer\\
+Category: Gender\\[3ex]
+
+\includegraphics[width=130px]{images/2565847129.jpg}\\
+A girl in a yellow \textbf{shirt} is standing on the beach\\
+Category: Type of clothing\\[3ex]
+
+\includegraphics[trim={0 20mm 0 10mm},clip,width=130px]{images/4272747342.jpg}\\
+A man in a \textbf{blue} shirt and blue jeans is working on a ladder\\ 
+Category: Color of clothing\\[3ex]
+
+\includegraphics[trim={0 35mm 0 20mm},clip,width=130px]{images/7430281548.jpg}\\
+A \textbf{boy} jumps over a hurdle\\
+Category: Wrong subject\\[3ex]
+
+\includegraphics[trim={0 20mm 0 10mm},clip,width=130px]{images/3815142931.jpg}\\
+\textbf{A woman in a blue shirt} is standing in front of a blue car\\
+Category: Inexistent subject\\[3ex]
+
+\includegraphics[trim={0 60mm 0 0mm},clip,width=130px]{images/3569420080.jpg}\\
+\textbf{Two police officers} are posing for a picture\\
+Category: Similar subject, number\\[3ex]
+
+\includegraphics[trim={0 50mm 0 35mm},clip,width=130px]{images/5605133486.jpg}\\
+A man in a white shirt \textbf{and a man in a white shirt} are preparing food\\ 
+Category: Extra subject\\[3ex]
+
+\includegraphics[trim={0 25mm 0 0mm},clip,width=130px]{images/618797331.jpg}\\
+A young boy is holding a \textbf{little girl}\\
+Category: Wrong object\\[3ex]
+
+\includegraphics[trim={0 90mm 0 20mm},clip,width=130px]{images/4738994499.jpg}\\
+A man is playing a \textbf{guitar}\\
+Category: Similar object\\[3ex]
+
+\includegraphics[width=130px]{images/6878446432.jpg}\\
+A young girl in a white shirt is playing with a \textbf{guitar}\\ 
+Category: Inexistent object\\[3ex]
+
+\includegraphics[width=130px]{images/3425851292.jpg}\\
+A man with a tennis racket \textbf{and a tennis racket}\\ 
+Category: Extra object\\[3ex]
+
+\includegraphics[width=130px]{images/3505701438.jpg}\\
+A man in a brown jacket is \textbf{standing} in front of a wall\\ 
+Category: Stance\\[3ex]
+
+\includegraphics[width=130px]{images/274313927.jpg}\\
+A black dog \textbf{runs through} the grass\\ 
+Category: Activity\\[3ex]
+
+\includegraphics[width=130px]{images/381748680.jpg}\\
+\textbf{Two} men are playing instruments\\
+Category: Number\\[3ex]
+
+\includegraphics[trim={0 50mm 0 0mm},clip,width=130px]{images/4397975773.jpg}\\
+A little girl in a white dress is walking \textbf{in} the water\\ 
+Category: Position\\[3ex]
+
+\includegraphics[width=130px]{images/841397013.jpg}\\
+A man in a white shirt and a woman in a white shirt are standing \textbf{in a hallway}\\ 
+Category: Scene/event/location\\[3ex]
+
+\includegraphics[width=130px]{images/391723162.jpg}\\
+A black \textbf{and white} dog is playing in the snow\\
+Category: Color\\[3ex]
+
+\includegraphics[width=130px]{images/167001809.jpg}\\
+\textbf{A group of people standing in the snow}\\ 
+Category: Generally unrelated\\[3ex]
+
+\includegraphics[width=130px]{images/4115261994.jpg}\\
+A group of people are standing in \textbf{a fire}\\
+Category: Other
+
+\end{multicols}
+
+
+\subsection{Important contrasts}
+While the categories are fairly straightforward, there are cases where it is easy to get confused between a pair of categories. Here are additional guidelines for difficult cases that I have encountered.
+
+\begin{itemize}
+\item \textsc{stance} versus \textsc{activity}: Use the former when the difference is static, e.g. \emph{standing} vs. \emph{sitting}. Use the latter if the difference is dynamic, e.g. \emph{standing} versus \emph{walking}.
+
+\item \textsc{scene/event/location} versus \textsc{position}: Use the former when the surroundings are not correct. Use the latter when position within the surroundings is not correct.
+
+\item \textsc{extra subject/object} versus \textsc{number}: Use the former when the subject/object is wrongfully extended with a conjunction (e.g. \emph{and a woman in a white shirt}). Use the latter when there's a general mismatch in number (\emph{a, one, two, three, a group of}).
+
+\item \textsc{similar object} versus \textsc{position}: This conflict arises in cases where e.g. \emph{\ldots is sitting on a bench} is used instead of \emph{\ldots is sitting on a chair}. In all these cases, use \emph{similar object}. (Even if there is an actual bench in the image.)
+\end{itemize}
+
+\section{Task descriptions \& instructions}
+Now that we have seen the different error categories, we can describe the two main tasks as follows:
+
+\begin{description}
+\item[Task 1: Congruency] Judge whether the generated description is congruent (no error categories apply) or incongruent (at least one error category applies).
+
+\item[Task 2: Categorizing incongruent descriptions] Annotate the `semantic edit distance' between the generated description and the closest valid description that you can imagine. Tick all the error categories corresponding to the things you would have to change. If the generated description is unrelated to the image, or if you feel that there are too many changes necessary to get to a valid description, select \textsc{generally unrelated}.
+\end{description}
+
+The threshold for when a description is generally unrelated is undefined. In general, I feel like type/color of clothing don't really hurt the relation between description and image as much as e.g. having the wrong verb. So it all comes down to your intuition.
+
+\section{Evaluation: correcting the errors}
+This is a separate task that serves both as an evaluation of Task 2, and as an indication of system performance if all errors identified in Task 2 are addressed. The correction task works as follows.
+
+\begin{enumerate}
+\item Select an error type to correct. E.g. \textsc{Color of clothing}. 
+\item Go through all images annotated with this type, and correct \emph{only} the relevant error.
+\item When all relevant errors are corrected, we evaluate the results using BLEU/Meteor.
+\end{enumerate}
+
+It is important for this task to be conservative in editing the descriptions. Try to change as little as possible. If a change would require restructuring the entire sentence, leave the description as it is. We'd rather underestimate than overestimate the improvement from fixing the errors. Otherwise we'd just be evaluating how good humans are at writing descriptions. So e.g.\ for colors, \emph{only} change color terms into other color terms. For gender, only change \emph{man $\leftrightarrow$ woman} and \emph{boy $\leftrightarrow$ girl}, not \emph{man $\leftrightarrow$ girl}. That would be changing the age along with the gender. 
+
+\end{document}

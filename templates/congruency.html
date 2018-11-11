@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block buttons %}
+<center style="margin:10px;">
+
+<form action="/congruency/" method="POST">
+Is the generated sentence congruent or incongruent with the image? (Be strict!)<br />
+<input type="hidden" name="number" value="{{number}}">
+<input type="submit" name="congruency" value="congruent">
+<input type="submit" name ="congruency" value="incongruent">
+</form>
+
+</center>
+{% endblock %}

@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Image annotator</title>
+<style>
+body {
+    background-color: #484043;
+    font-family: "Helvetica";
+    font-size: 12;
+    color: #192823;
+}
+h1 {color: black;}
+th {text-align: left}
+a {color: #1f618d ;}
+.clearfix {
+    background-color: #c0c0c0;
+    overflow: auto;
+    width: 1024px;
+    margin:auto;
+    border: 3px solid #FFFFFF;
+}
+
+#image {
+    width: 400px;
+    height: 291px;
+    border: 1px solid black;
+    float: left;
+    margin: 5px;
+    background-color: black;
+    background-image: url({{image}});
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#captions {
+    background-color: #CCCCCC;
+    width: 600px;
+    height: 180px;
+    border: 1px solid black;
+    margin: 5px;
+    float: left;
+}
+
+#buttons {
+    background-color: #CCCCCC;
+    width: 600px;
+    min-height: 100px;
+    margin: 5px;
+    border: 1px solid black;
+    float:right;
+}
+
+#allcontent {
+    background-color: #CCCCCC;
+    width: 600px;
+    min-height: 100px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+</style>
+</head>
+<body>
+    <div class="clearfix">
+    <center>
+    <h1>Annotating images</h1>
+    <a href="/">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/congruency/">Congruency</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/load_congruency/">Load congruency data</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/inspect_congruent/">Inspect congruent</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/inspect_incongruent/">Inspect incongruent</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/categorize_incongruent/">Categorize incongruent</a>
+    </center>
+    {% block all_content %}
+    <!--<div id="image"><img src="{{image}}" width="400px"></img></div>-->
+    <div id="image"> </div>
+    
+    <div id="captions">
+    <table width="600px" style="font-size:12;">
+        <tr><td width="50%"><b>Generated </td><td width="50%" style="text-align:right;">{{number}} ({{number+1}}/{{total}})</b></td></tr>
+    <tr><td colspan="2">{{generated}}</td></tr>
+        <tr><td colspan="2"> </td></tr>
+    <tr><td colspan="2"><b>References</b></td></tr>
+    <tr><td colspan="2">
+    <ul>
+    {% for description in refs %}
+        <li> {{description}} </li>
+    {% endfor %}
+    </ul>
+    </td></tr>
+    </table>
+    </div>
+    <div id="buttons">{% block buttons %}<p style="margin:5px;">This box is reserved for annotating the generated sentence.</p>{% endblock %}</div>
+    </div>
+    {% endblock %}
+</body>
+</html>

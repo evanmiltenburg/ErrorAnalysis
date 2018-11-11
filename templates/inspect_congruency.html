@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block buttons %}
+<center style="margin:10px;">
+
+<form action="{{task_url}}" method="POST">
+Navigation ({{congruency_index + 1}}/{{category_total}})<br />
+<input type="hidden" name="number" value="{{congruency_index}}">
+<input type="submit" name="target" value="previous">
+<input type="submit" name ="target" value="next">
+</form>
+
+</center>
+{% endblock %}
